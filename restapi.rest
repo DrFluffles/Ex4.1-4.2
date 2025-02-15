@@ -19,5 +19,5 @@ content-type: application/json
     "title": "test",
   "author": "test author",
   "url": "http://coolios.com",
-  "likes": "7"
+  "likes": "234"
 }
