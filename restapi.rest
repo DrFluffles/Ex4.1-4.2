@@ -21,3 +21,14 @@ content-type: application/json
   "url": "http://coolios.com",
   "likes": "234"
 }
+
+### 
+PUT http://localhost:3001/api/blogs HTTP/1.1
+content-type: application/json
+
+{
+  "title": "test",
+  "author": "test author",
+  "url": "http://coolios.com",
+  "likes": "234"
+}
