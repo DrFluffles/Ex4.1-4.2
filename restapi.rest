@@ -10,7 +10,7 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:3001/api/blogs
+GET http://localhost:3001/api/users
 ###
 POST http://localhost:3001/api/blogs HTTP/1.1
 content-type: application/json
@@ -19,7 +19,8 @@ content-type: application/json
     "title": "test",
   "author": "test author",
   "url": "http://coolios.com",
-  "likes": "234"
+  "likes": "234",
+  "userId": "67bd338337cf5a8bd9be950a"
 }
 
 ### 
@@ -31,4 +32,22 @@ content-type: application/json
   "author": "test author",
   "url": "http://coolios.com",
   "likes": "234"
+}
+
+### 
+POST http://localhost:3001/api/users 
+content-type: application/json
+
+{
+   "username": "mduser",
+    "name": "mduser",
+    "password": "salainen"
+}
+
+###
+post https://localhost:3001/api/login HTTP/1.1
+content-type: application/json
+{
+  "username": "mduser",
+  "password": "salainen"
 }
