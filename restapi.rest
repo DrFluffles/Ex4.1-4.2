@@ -10,14 +10,15 @@ content-type: application/json
 }
 
 ###
-GET http://localhost:3001/api/users
+GET http://localhost:3001/api/blogs
 ###
 POST http://localhost:3001/api/blogs HTTP/1.1
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3R1c2VyIiwiaWQiOiI2N2MyYjAzMDEwMjMwNDU4NmFiNzQ4OTkiLCJpYXQiOjE3NDA4MTM4NDl9.feUsNmo1V619u8UAkC81mACg5mDvrC6K4cLaMJza3rE
 
 {
-    "title": "test",
-  "author": "test author",
+    "title": "testasdasd",
+  "author": "test authoraa",
   "url": "http://coolios.com",
   "likes": "234",
   "userId": "67bd338337cf5a8bd9be950a"
@@ -39,15 +40,15 @@ POST http://localhost:3001/api/users
 content-type: application/json
 
 {
-   "username": "mduser",
-    "name": "mduser",
-    "password": "salainen"
+  "username": "testuser",
+  "name": "testuser",
+  "password": "testpassword"
 }
-
 ###
-post https://localhost:3001/api/login HTTP/1.1
-content-type: application/json
+POST http://localhost:3001/api/login
+Content-type: application/json
+
 {
-  "username": "mduser",
-  "password": "salainen"
+   "username": "testuser",
+    "password": "testpassword"
 }
