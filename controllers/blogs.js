@@ -60,21 +60,24 @@ blogsRouter.delete("/:id", async (request, response) => {
 });
 
 blogsRouter.put("/:id", async (request, response) => {
-  const body = request.body;
-  const newBlog = {
-    title: body.title,
-    author: body.author,
-    url: body.url,
-    likes: body.likes,
-  };
+  try {
+    const { likes } = request.body;
 
-  await Blog.findByIdAndUpdate(request.params.id, newBlog, { new: true })
-    .then((updatedBlog) => {
-      response.status(200).json(updatedBlog);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    const updatedBlog = await Blog.findByIdAndUpdate(
+      request.params.id,
+      { likes },
+      { new: true, runValidators: true } // Ensures validation rules apply & returns updated object
+    ).populate("user", { username: 1 });
+
+    if (!updatedBlog) {
+      return response.status(404).json({ error: "Blog not found" });
+    }
+    console.log(JSON.stringify(updatedBlog));
+    response.status(200).json(updatedBlog);
+  } catch (error) {
+    console.error("Error updating likes:", error);
+    response.status(500).json({ error: "Internal server error" });
+  }
 });
 
 module.exports = blogsRouter;
